@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6D5EBF1B-7F85-49A5-9ABF-C9D3861476E0}|Users.Infrastructure\\Users.Infrastructure.csproj|c:\\projetos\\almeida-pinturas\\src\\users\\users.webapi\\users.infrastructure\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5EBF1B-7F85-49A5-9ABF-C9D3861476E0}|Users.Infrastructure\\Users.Infrastructure.csproj|solutionrelative:users.infrastructure\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90182842-C8CF-4E7A-B7DC-8D9EE158E024}|Users.Domain\\Users.Domain.csproj|c:\\projetos\\almeida-pinturas\\src\\users\\users.webapi\\users.domain\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90182842-C8CF-4E7A-B7DC-8D9EE158E024}|Users.Domain\\Users.Domain.csproj|solutionrelative:users.domain\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D8CFBF1-FADB-4228-9547-A480E3E64C76}|Users.Application\\Users.Application.csproj|c:\\projetos\\almeida-pinturas\\src\\users\\users.webapi\\users.application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D8CFBF1-FADB-4228-9547-A480E3E64C76}|Users.Application\\Users.Application.csproj|solutionrelative:users.application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Users.Infrastructure\\Program.cs",
+              "RelativeDocumentMoniker": "Users.Infrastructure\\Program.cs",
+              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Users.Infrastructure\\Program.cs",
+              "RelativeToolTip": "Users.Infrastructure\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T21:43:35.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Users.Domain\\Program.cs",
+              "RelativeDocumentMoniker": "Users.Domain\\Program.cs",
+              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Users.Domain\\Program.cs",
+              "RelativeToolTip": "Users.Domain\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T21:42:12.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Users.Application\\Program.cs",
+              "RelativeDocumentMoniker": "Users.Application\\Program.cs",
+              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Users.Application\\Program.cs",
+              "RelativeToolTip": "Users.Application\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T21:41:42.302Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
