@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using Users.Application.Commands;
-using Users.Application.Handlers;
+using Users.Application.Users.Handlers;
 using Users.Infrastructure.Data;
 
 namespace Users.UnitTesting.Application.Handlers;

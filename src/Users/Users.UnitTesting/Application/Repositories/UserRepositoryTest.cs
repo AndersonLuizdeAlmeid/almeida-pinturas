@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
-using Users.Application.Repositories;
+using Users.Application.Users.Repositories;
 using Users.Infrastructure.Data;
 
 namespace Users.UnitTesting.Application.Repositories;

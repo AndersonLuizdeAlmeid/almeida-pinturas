@@ -1,4 +1,4 @@
-﻿using Users.Application.Queries;
+﻿using Users.Application.Users.Queries;
 
 namespace Users.WebApi.DependencyInjection;
 public static class QueriesInjection

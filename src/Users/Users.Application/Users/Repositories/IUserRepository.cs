@@ -1,6 +1,6 @@
 ﻿using Users.Infrastructure.Data;
 
-namespace Users.Application.Repositories;
+namespace Users.Application.Users.Repositories;
 public interface IUserRepository
 {
     Task AddAsync(User user);

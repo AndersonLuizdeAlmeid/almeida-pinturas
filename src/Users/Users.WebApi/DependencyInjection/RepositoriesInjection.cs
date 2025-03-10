@@ -1,4 +1,4 @@
-﻿using Users.Application.Repositories;
+﻿using Users.Application.Users.Repositories;
 
 namespace Users.WebApi.DependencyInjection;
 public static class RepositoriesInjection

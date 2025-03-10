@@ -1,9 +1,9 @@
 ﻿using CSharpFunctionalExtensions;
 using MediatR;
-using Users.Application.Commands;
+using Users.Application.Users.Commands;
 using Users.Infrastructure.Data;
 
-namespace Users.Application.Handlers;
+namespace Users.Application.Users.Handlers;
 public class UserHandler : IUserHandler,
                            IRequestHandler<CreateUserCommand, Result>,
                            IRequestHandler<ChangeUserCommand, Result>
@@ -19,6 +19,7 @@ public class UserHandler : IUserHandler,
     {
         try
         {
+            request.User.Password = BCrypt.Net.BCrypt.HashPassword(request.User.Password);
             await _context.Users.AddAsync(request.User, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
             return Result.Success();
@@ -42,6 +43,7 @@ public class UserHandler : IUserHandler,
 
             user.Name = request.User.Name;
             user.Email = request.User.Email;
+            user.Password = request.User.Password;
             user.Cpf = request.User.Cpf;
             user.Address = request.User.Address;
             user.PhoneNumber = request.User.PhoneNumber;

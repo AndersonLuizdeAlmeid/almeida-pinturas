@@ -1,27 +1,15 @@
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading;
-using Users.Application.Commands;
-using Users.Application.Queries;
-using Users.Application.Repositories;
-using Users.Infrastructure.Data;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Users.Application.Users.Commands;
+using Users.Application.Users.Queries;
+using Users.WebApi.Authorizations;
 
 [ApiController]
-[Route("api/users")]
-public class UsersController : ControllerBase
+[Route("[controller]")]
+public class UsersController(IUserQuery _userQueries, IMediator _mediator) : ControllerBase
 {
-    private readonly IUserQuery _userQueries;
-    private readonly IMediator _mediator;
-
-    public UsersController(IUserQuery userQueries, IMediator mediator)
-    {
-        _userQueries = userQueries;
-        _mediator = mediator;
-    }
-
     [HttpGet("{id}")]
+    [Authorization]
     public async Task<IActionResult> GetById(long id)
     {
         var user = await _userQueries.GetByIdAsync(id);
@@ -30,14 +18,17 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
+    [Authorization]
     public async Task<IActionResult> GetAll()
         => Ok(await _userQueries.GetAllAsync());
 
     [HttpGet("search")]
+    [Authorization]
     public async Task<IActionResult> GetByName([FromQuery] string name) 
         => Ok(await _userQueries.GetByNameAsync(name));
 
     [HttpPost]
+    //[Authorization]
     public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);
@@ -48,6 +39,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut]
+    [Authorization]
     public async Task<IActionResult> Update([FromBody] ChangeUserCommand command, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);

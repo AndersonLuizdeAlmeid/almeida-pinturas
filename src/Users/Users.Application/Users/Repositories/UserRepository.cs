@@ -1,6 +1,6 @@
 ﻿using Users.Infrastructure.Data;
 
-namespace Users.Application.Repositories;
+namespace Users.Application.Users.Repositories;
 public class UserRepository : IUserRepository
 {
     private readonly ApplicationDbContext _context;

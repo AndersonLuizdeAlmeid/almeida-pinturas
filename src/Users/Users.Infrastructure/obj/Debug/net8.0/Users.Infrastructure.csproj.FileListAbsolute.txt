@@ -12,3 +12,4 @@ C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\ref
 C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.pdb
 C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.genruntimeconfig.cache
 C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\ref\Users.Infrastructure.dll
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.sourcelink.json

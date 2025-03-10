@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
-using Users.Application.Queries;
+using Users.Application.Users.Queries;
 using Users.Infrastructure.Data;
 
 namespace Users.UnitTesting.Application.Queries;

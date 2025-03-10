@@ -12,7 +12,7 @@ using Users.Infrastructure.Data;
 namespace Users.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250304001032_InitialCreate")]
+    [Migration("20250309210251_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -49,6 +49,9 @@ namespace Users.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")

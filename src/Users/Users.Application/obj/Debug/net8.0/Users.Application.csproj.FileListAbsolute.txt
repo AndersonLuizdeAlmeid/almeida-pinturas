@@ -13,3 +13,4 @@ C:\Projetos\almeida-pinturas\src\Users\Users.Application\obj\Debug\net8.0\Users.
 C:\Projetos\almeida-pinturas\src\Users\Users.Application\obj\Debug\net8.0\refint\Users.Application.dll
 C:\Projetos\almeida-pinturas\src\Users\Users.Application\obj\Debug\net8.0\Users.Application.pdb
 C:\Projetos\almeida-pinturas\src\Users\Users.Application\obj\Debug\net8.0\ref\Users.Application.dll
+C:\Projetos\almeida-pinturas\src\Users\Users.Application\obj\Debug\net8.0\Users.Application.sourcelink.json

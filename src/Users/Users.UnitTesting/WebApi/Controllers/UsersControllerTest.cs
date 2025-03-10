@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Users.Application.Commands;
-using Users.Application.Queries;
+using Users.Application.Users.Queries;
 using Users.Infrastructure.Data;
 
 namespace Users.UnitTesting.WebApi.Controllers;

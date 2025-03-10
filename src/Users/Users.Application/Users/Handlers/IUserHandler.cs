@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
-using Users.Application.Commands;
+using Users.Application.Users.Commands;
 
-namespace Users.Application.Handlers;
+namespace Users.Application.Users.Handlers;
 public interface IUserHandler
 {
     Task<Result> Handle(CreateUserCommand command, CancellationToken cancellationToken);
