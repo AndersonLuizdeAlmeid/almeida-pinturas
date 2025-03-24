@@ -35,12 +35,22 @@ builder.Services.Configure<MongoDbSettings>(
 
 builder.Services.AddHostedService<RabbitMQConsumer>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
+app.UseCors("AllowAll");
+
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
