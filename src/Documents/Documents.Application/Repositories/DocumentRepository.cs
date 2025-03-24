@@ -1,6 +1,9 @@
-﻿using Documents.Application.Domain;
+﻿#nullable enable
+using Documents.Infrastructure.Domain;
 using Documents.Infrastructure.Data;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Documents.Application.Repositories;
 public class DocumentRepository : IDocumentRepository
@@ -9,7 +12,7 @@ public class DocumentRepository : IDocumentRepository
 
     public DocumentRepository(MongoDbContext context)
     {
-        _documents = (IMongoCollection<Document>?)context.Documents;
+        _documents = context.Documents;
     }
 
     public async Task<List<Document>> GetAllAsync()

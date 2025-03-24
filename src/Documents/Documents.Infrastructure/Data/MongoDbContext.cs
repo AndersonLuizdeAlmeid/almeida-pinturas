@@ -1,7 +1,7 @@
-﻿using Documents.Infrastructure.Data.MongoSettings;
+﻿using Documents.Infrastructure.Domain;
+using Documents.Infrastructure.Data.MongoSettings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System.Reflection.Metadata;
 
 namespace Documents.Infrastructure.Data;
 public class MongoDbContext
@@ -15,6 +15,4 @@ public class MongoDbContext
     }
 
     public IMongoCollection<Document> Documents => _database.GetCollection<Document>("Documents");
-}
-
 }

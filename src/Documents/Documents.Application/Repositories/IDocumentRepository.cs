@@ -1,4 +1,7 @@
-﻿using Documents.Application.Domain;
+﻿#nullable enable
+using Documents.Infrastructure.Domain;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Documents.Application.Repositories;
 public interface IDocumentRepository
