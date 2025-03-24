@@ -8,6 +8,6 @@ public interface IDocumentService
 {
     Task<List<Document>> GetAllDocumentsAsync();
     Task<Document?> GetDocumentByIdAsync(string id);
-    Task CreateDocumentAsync(Document document);
+    Task<bool> CreateDocumentAsync(Document document);
     Task<bool> DeleteDocumentAsync(string id);
 }

@@ -6,9 +6,9 @@ namespace Documents.Infrastructure.Domain;
 public class Document
 {
     [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; set; } = null!;
-    public string UserId { get; set; } = null!;
+    [BsonRepresentation(BsonType.String)]
+    public string Id { get; set; } = Guid.NewGuid().ToString(); // Gera um ID único como string
+    public string FolderId { get; set; } = null!;
     public string FileName { get; set; } = null!;
     public string FileType { get; set; } = null!;
     public long Size { get; set; } // Tamanho do arquivo em bytes

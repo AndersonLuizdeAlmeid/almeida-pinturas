@@ -15,4 +15,6 @@ public class MongoDbContext
     }
 
     public IMongoCollection<Document> Documents => _database.GetCollection<Document>("Documents");
+    public IMongoCollection<Folder> Folders => _database.GetCollection<Folder>("Folders");
+
 }

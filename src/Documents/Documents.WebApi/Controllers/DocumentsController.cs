@@ -22,8 +22,11 @@ public class DocumentsController(IDocumentService _documentService) : Controller
     [HttpPost]
     public async Task<IActionResult> Upload([FromBody] Document document)
     {
-        await _documentService.CreateDocumentAsync(document);
-        return CreatedAtAction(nameof(GetById), new { id = document.Id }, document);
+        var result = await _documentService.CreateDocumentAsync(document);
+        if (result)
+            return CreatedAtAction(nameof(GetById), new { id = document.Id }, document);
+
+        return BadRequest();
     }
 
     [HttpDelete("{id}")]

@@ -543,6 +543,23 @@ vendor/
 .vscode
 .vs
 
+# Ignorar arquivos de build do .NET
+bin/
+obj/
+.vs/
+TestResults/
+
+# Ignorar arquivos específicos do projeto
+src/*/bin/
+src/*/obj/
+src/*/.vs/
+
+# Ignorar DLLs geradas
+*.dll
+
+# Ignorar arquivos de cache e logs
+*.log
+
 # Android memory profiler files
 *.hprof
 
