@@ -2,11 +2,13 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Users.Application.Users.Commands;
 using Users.Application.Users.Queries;
+using Users.Infrastructure.Data;
 using Users.WebApi.Authorizations;
+using Users.WebApi.RabbitMQ;
 
 [ApiController]
 [Route("[controller]")]
-public class UsersController(IUserQuery _userQueries, IMediator _mediator) : ControllerBase
+public class UsersController(IUserQuery _userQueries, IMediator _mediator, RabbitMQPublisher _rabbitMQPublisher) : ControllerBase
 {
     [HttpGet("{id}")]
     [Authorization]
@@ -34,6 +36,8 @@ public class UsersController(IUserQuery _userQueries, IMediator _mediator) : Con
         var result = await _mediator.Send(command, cancellationToken);
         if (result.IsFailure)
             return BadRequest(result.Error);
+
+        _rabbitMQPublisher.PublishUserCreatedEvent(command.User.Id.ToString());
 
         return Ok("Usuário criado com sucesso!");
     }
