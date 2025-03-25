@@ -28,7 +28,6 @@ public class TokenService
     public static TokenDto DecryptToken(string token)
     {
         var handler = new JwtSecurityTokenHandler();
-
         var validationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
@@ -36,30 +35,19 @@ public class TokenService
             ValidateIssuer = false,
             ValidateAudience = false,
             RequireExpirationTime = true,
-            ValidateLifetime = false,
+            ValidateLifetime = false, // Ou true, se quiser rejeitar tokens expirados
             ClockSkew = TimeSpan.Zero
         };
 
-        var principal = handler.ValidateToken(token, validationParameters, out _);
+        var principal = handler.ValidateToken(token, validationParameters, out var validatedToken);
+        var jwtToken = validatedToken as JwtSecurityToken;
 
-        TokenDto tokenDto = new();
-
-        foreach (var claim in principal.Claims)
+        TokenDto tokenDto = new TokenDto
         {
+            ExpirationDate = jwtToken != null ? jwtToken.ValidTo : DateTime.MinValue,
+            IsAuthenticated = principal.Claims.Any(c => c.Type == "isAuthenticated" && bool.Parse(c.Value))
+        };
 
-            switch (claim.Type)
-            {
-                case "isAuthenticated":
-                    tokenDto.IsAuthenticated = bool.Parse(claim.Value);
-                    break;
-
-                case "exp":
-                    tokenDto.ExpirationDate = DateTimeOffset.FromUnixTimeSeconds(long.Parse(claim.Value)).UtcDateTime;
-                    break;
-
-            }
-        }
         return tokenDto;
     }
-
 }

@@ -1,0 +1,15 @@
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\bin\Debug\net8.0\Users.Infrastructure.deps.json
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\bin\Debug\net8.0\Users.Infrastructure.runtimeconfig.json
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\bin\Debug\net8.0\Users.Infrastructure.dll
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\bin\Debug\net8.0\Users.Infrastructure.pdb
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.csproj.AssemblyReference.cache
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.AssemblyInfoInputs.cache
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.AssemblyInfo.cs
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.sourcelink.json
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.dll
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\refint\Users.Infrastructure.dll
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.pdb
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\Users.Infrastructure.genruntimeconfig.cache
+C:\Projetos\almeida-pinturas\src\Users\Users.Infrastructure\obj\Debug\net8.0\ref\Users.Infrastructure.dll

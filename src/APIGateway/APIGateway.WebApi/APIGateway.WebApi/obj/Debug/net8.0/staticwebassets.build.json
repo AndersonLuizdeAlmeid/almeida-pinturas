@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rgP12f2/x64P3GFJTCRUD/xIg61hbAWtEihphyx6seI=",
+  "Source": "APIGateway.WebApi",
+  "BasePath": "_content/APIGateway.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

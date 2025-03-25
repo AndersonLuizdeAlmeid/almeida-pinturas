@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|c:\\projetos\\almeida-pinturas\\src\\apigateway\\apigateway.webapi\\apigateway.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|solutionrelative:apigateway.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|c:\\projetos\\almeida-pinturas\\src\\apigateway\\apigateway.webapi\\apigateway.webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|solutionrelative:apigateway.webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|c:\\projetos\\almeida-pinturas\\src\\apigateway\\apigateway.webapi\\apigateway.webapi\\apigateway.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|solutionrelative:apigateway.webapi\\apigateway.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|c:\\projetos\\almeida-pinturas\\src\\apigateway\\apigateway.webapi\\apigateway.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FAE6C6-C37B-4306-B1E7-E6C5DBD5DEE4}|APIGateway.WebApi\\APIGateway.WebApi.csproj|solutionrelative:apigateway.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,60 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "APIGateway.WebApi\\appsettings.Development.json",
-              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\appsettings.Development.json",
-              "RelativeToolTip": "APIGateway.WebApi\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-24T23:07:03.33Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "APIGateway.WebApi\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\Properties\\launchSettings.json",
-              "RelativeToolTip": "APIGateway.WebApi\\Properties\\launchSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAcwBQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-24T23:06:43.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "APIGateway.WebApi",
-              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\APIGateway.WebApi.csproj",
-              "RelativeDocumentMoniker": "APIGateway.WebApi\\APIGateway.WebApi.csproj",
-              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\APIGateway.WebApi.csproj",
-              "RelativeToolTip": "APIGateway.WebApi\\APIGateway.WebApi.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-24T23:06:36.921Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\Program.cs",
-              "RelativeDocumentMoniker": "APIGateway.WebApi\\Program.cs",
-              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\APIGateway\\APIGateway.WebApi\\APIGateway.WebApi\\Program.cs",
-              "RelativeToolTip": "APIGateway.WebApi\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:06:05.778Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"

@@ -42,8 +42,7 @@
               "RelativeToolTip": "Documents.WebApi\\appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-24T21:25:25.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T21:25:25.899Z"
             },
             {
               "$type": "Document",
@@ -53,7 +52,7 @@
               "RelativeDocumentMoniker": "Documents.WebApi\\Controllers\\DocumentsController.cs",
               "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Documents\\Documents.WebApi\\Controllers\\DocumentsController.cs",
               "RelativeToolTip": "Documents.WebApi\\Controllers\\DocumentsController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACEAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T21:17:52.369Z",
               "EditorCaption": ""
@@ -68,8 +67,7 @@
               "RelativeToolTip": "Documents.WebApi\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-24T21:03:02.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T21:03:02.94Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Documents.WebApi\\Program.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAAADQAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T21:02:35.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T21:02:35.109Z"
             }
           ]
         }

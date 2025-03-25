@@ -17,6 +17,9 @@ public class AuthorizationFilter : IAuthorizationFilter
             return;
         }
 
+        if (token!.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
+            token = token.Substring(7);
+
         var decryptedToken = TokenService.DecryptToken(token!);
 
         if ((decryptedToken.ExpirationDate - DateTime.UtcNow).TotalMinutes <= 0)

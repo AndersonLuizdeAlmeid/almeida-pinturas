@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Projetos\\almeida-pinturas\\src\\Users\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08128C7A-FA4A-452F-A25A-EEEAAAC8DADD}|Users.WebApi\\Users.WebApi.csproj|c:\\projetos\\almeida-pinturas\\src\\users\\users.webapi\\authorizations\\authorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08128C7A-FA4A-452F-A25A-EEEAAAC8DADD}|Users.WebApi\\Users.WebApi.csproj|solutionrelative:users.webapi\\authorizations\\authorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08128C7A-FA4A-452F-A25A-EEEAAAC8DADD}|Users.WebApi\\Users.WebApi.csproj|c:\\projetos\\almeida-pinturas\\src\\users\\users.webapi\\controllers\\authenticationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08128C7A-FA4A-452F-A25A-EEEAAAC8DADD}|Users.WebApi\\Users.WebApi.csproj|solutionrelative:users.webapi\\controllers\\authenticationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D8CFBF1-FADB-4228-9547-A480E3E64C76}|Users.Application\\Users.Application.csproj|c:\\projetos\\almeida-pinturas\\src\\users\\users.application\\authentications\\handlers\\authenticationshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D8CFBF1-FADB-4228-9547-A480E3E64C76}|Users.Application\\Users.Application.csproj|solutionrelative:users.application\\authentications\\handlers\\authenticationshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorizationFilter.cs",
+              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Authorizations\\AuthorizationFilter.cs",
+              "RelativeDocumentMoniker": "Users.WebApi\\Authorizations\\AuthorizationFilter.cs",
+              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Authorizations\\AuthorizationFilter.cs",
+              "RelativeToolTip": "Users.WebApi\\Authorizations\\AuthorizationFilter.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T00:27:49.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthenticationsHandler.cs",
+              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.Application\\Authentications\\Handlers\\AuthenticationsHandler.cs",
+              "RelativeDocumentMoniker": "Users.Application\\Authentications\\Handlers\\AuthenticationsHandler.cs",
+              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.Application\\Authentications\\Handlers\\AuthenticationsHandler.cs",
+              "RelativeToolTip": "Users.Application\\Authentications\\Handlers\\AuthenticationsHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T23:49:49.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationsController.cs",
+              "DocumentMoniker": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Controllers\\AuthenticationsController.cs",
+              "RelativeDocumentMoniker": "Users.WebApi\\Controllers\\AuthenticationsController.cs",
+              "ToolTip": "C:\\Projetos\\almeida-pinturas\\src\\Users\\Users.WebApi\\Controllers\\AuthenticationsController.cs",
+              "RelativeToolTip": "Users.WebApi\\Controllers\\AuthenticationsController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T23:26:48.281Z",
+              "EditorCaption": ""
             }
           ]
         }
