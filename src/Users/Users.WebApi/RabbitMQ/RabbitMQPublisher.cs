@@ -8,7 +8,7 @@ public class RabbitMQPublisher
     private readonly string _hostname = "rabbitmq"; // Alterar se necessário
     private readonly string _queueName = "UserCreatedQueue";
 
-    public void PublishUserCreatedEvent(string userId)
+    public void PublishUserCreatedEvent(long userId)
     {
         var factory = new ConnectionFactory()
         {

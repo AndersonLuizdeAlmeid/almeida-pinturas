@@ -21,6 +21,9 @@ public class DocumentRepository : IDocumentRepository
     public async Task<Document?> GetByIdAsync(string id)
         => await _documents.Find(d => d.Id == id).FirstOrDefaultAsync();
 
+    public async Task<List<Document>?> GetByFolderIdAsync(string folderId)
+    => await _documents.Find(d => d.FolderId == folderId).ToListAsync();
+
     public async Task CreateAsync(Document document)
         => await _documents.InsertOneAsync(document);
 

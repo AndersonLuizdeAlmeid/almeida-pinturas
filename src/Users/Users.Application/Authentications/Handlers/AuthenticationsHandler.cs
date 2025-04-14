@@ -14,6 +14,8 @@ public class AuthenticationsHandler(IUserQuery _userQuery) : IRequestHandler<Aut
             return Result.Failure<string>("Email está com problema.");
 
         var user = await _userQuery.GetByNameAndPassword(request.Email, request.Password);
+        if(user == null)
+            return Result.Failure<string>("Problema ao buscar usuário.");
 
         if (user.IsActive == 0)
             return Result.Failure<string>("O usuário está inativo.");

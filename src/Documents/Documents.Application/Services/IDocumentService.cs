@@ -8,6 +8,7 @@ public interface IDocumentService
 {
     Task<List<Document>> GetAllDocumentsAsync();
     Task<Document?> GetDocumentByIdAsync(string id);
-    Task<bool> CreateDocumentAsync(Document document);
+    Task<List<DocumentDto>?> GetDocumentByUserIdAsync(long userId);
+    Task<bool> CreateDocumentAsync(Document document, long userId);
     Task<bool> DeleteDocumentAsync(string id);
 }

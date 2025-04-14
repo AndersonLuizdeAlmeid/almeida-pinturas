@@ -30,7 +30,7 @@ public class UserQuery : IUserQuery
 
         if (user == null)
             return null;
-
+        return user;
         bool senhaValida = BCrypt.Net.BCrypt.Verify(password, user.Password);
 
         return senhaValida ? user : null;

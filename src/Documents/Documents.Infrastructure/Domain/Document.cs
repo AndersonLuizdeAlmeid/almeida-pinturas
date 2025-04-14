@@ -11,7 +11,8 @@ public class Document
     public string FolderId { get; set; } = null!;
     public string FileName { get; set; } = null!;
     public string FileType { get; set; } = null!;
-    public long Size { get; set; } // Tamanho do arquivo em bytes
+    public long Size { get; set; }
     public DateTime UploadDate { get; set; } = DateTime.UtcNow;
-    public string StorageUrl { get; set; } = null!;
+    public DateTime ExpirateDate { get; set; }
+    public byte[] Content { get; set; }
 }

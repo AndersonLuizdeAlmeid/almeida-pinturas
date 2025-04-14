@@ -35,11 +35,11 @@ public class UsersController(IUserQuery _userQueries, IMediator _mediator, Rabbi
     {
         var result = await _mediator.Send(command, cancellationToken);
         if (result.IsFailure)
-            return BadRequest(result.Error);
+            return BadRequest(new { message = result.Error });
 
-        _rabbitMQPublisher.PublishUserCreatedEvent(command.User.Id.ToString());
+        _rabbitMQPublisher.PublishUserCreatedEvent(command.User.Id);
 
-        return Ok("Usuário criado com sucesso!");
+        return Ok(new { message = "Usuário criado com sucesso!" });
     }
 
     [HttpPut]

@@ -33,6 +33,9 @@ public class RabbitMQConsumer : BackgroundService
         var consumer = new EventingBasicConsumer(_channel);
         consumer.Received += (model, ea) =>
         {
+            if (stoppingToken.IsCancellationRequested)
+                return;
+
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
             var user = JsonSerializer.Deserialize<Folder>(message);
@@ -48,8 +51,10 @@ public class RabbitMQConsumer : BackgroundService
         };
 
         _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
-        return Task.CompletedTask;
+
+        return Task.CompletedTask; // Deixa rodando até que o host seja encerrado
     }
+
 
     private void CreateUserFolder(Folder folder)
     {

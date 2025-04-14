@@ -21,6 +21,9 @@ public class FolderRepository : IFolderRepository
     public async Task<Folder?> GetByIdAsync(string folderId)
         => await _folders.Find(f => f.Id == folderId).FirstOrDefaultAsync();
 
+    public async Task<Folder?> GetByUserIdAsync(long userId)
+    => await _folders.Find(f => f.UserId == userId).FirstOrDefaultAsync();
+
     public async Task CreateAsync(Folder folder)
         => await _folders.InsertOneAsync(folder);
     public async Task<bool> UpdateAsync(Folder folder)
