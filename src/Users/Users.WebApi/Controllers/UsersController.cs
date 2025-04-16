@@ -1,12 +1,13 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Users.Application.Users.Commands;
 using Users.Application.Users.Queries;
-using Users.Infrastructure.Data;
 using Users.WebApi.Authorizations;
 using Users.WebApi.RabbitMQ;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class UsersController(IUserQuery _userQueries, IMediator _mediator, RabbitMQPublisher _rabbitMQPublisher) : ControllerBase
 {
@@ -30,7 +31,7 @@ public class UsersController(IUserQuery _userQueries, IMediator _mediator, Rabbi
         => Ok(await _userQueries.GetByNameAsync(name));
 
     [HttpPost]
-    //[Authorization]
+    [Authorization]
     public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);

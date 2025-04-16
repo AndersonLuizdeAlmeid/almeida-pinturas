@@ -1,11 +1,12 @@
-﻿using Documents.Infrastructure.Domain;
-using Documents.Application.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Documents.Application.Services;
 using Documents.WebApi.Utils;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Documents.WebApi.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class DocumentsController(IDocumentService _documentService) : ControllerBase
 {

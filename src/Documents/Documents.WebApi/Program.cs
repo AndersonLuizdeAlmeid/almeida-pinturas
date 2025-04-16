@@ -3,6 +3,7 @@ using Documents.Application.Repositories.Folders;
 using Documents.Application.Services;
 using Documents.Infrastructure.Data;
 using Documents.Infrastructure.Data.MongoSettings;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,12 +46,32 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = "http://localhost:3000", // mesmo que no Gateway
+
+            ValidateAudience = true,
+            ValidAudience = "local-api", // mesmo que no Gateway
+
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Convert.FromBase64String(builder.Configuration["Jwt:Secret"])
+            )
+        };
+    });
+
 var app = builder.Build();
 
 app.UseCors("AllowAll");
-
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
 app.Run();

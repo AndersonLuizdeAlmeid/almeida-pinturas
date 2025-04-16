@@ -12,7 +12,7 @@ public static class DependenciesInjection
         service.AddRepositoriesInjection();
         service.AddScoped<RabbitMQPublisher>();
 
-        Key.SetSecret(configuration.GetSection("Secret").Value);
+        Key.SetSecret(configuration.GetValue<string>("Jwt:Secret"));
 
         return service;
     }

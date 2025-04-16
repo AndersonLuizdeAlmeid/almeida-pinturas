@@ -7,16 +7,21 @@ public class TokenService
 {
     public static string GenerateCustomToken(long id, bool isActive)
     {
+        var issuer = "http://localhost:3000";
+        var audience = "local-api";
+
         var claims = new List<Claim>
-        {
-            new("userID", id.ToString()),
-            new("isAuthenticated", isActive.ToString())
-        };
+    {
+        new("userID", id.ToString()),
+        new("isAuthenticated", isActive.ToString())
+    };
 
         var key = new SymmetricSecurityKey(Convert.FromBase64String(Key.Secret!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
+            issuer: issuer,
+            audience: audience,
             expires: DateTime.UtcNow.AddHours(16),
             signingCredentials: creds,
             claims: claims
