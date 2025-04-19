@@ -18,7 +18,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Gerar imagem Docker do backend
-        run: docker-compose build
+        run: docker-compose -f src/docker-compose.yml build
 
       - name: Enviar imagem pro Docker Hub
         run: docker push andersonluizdealmeida1997/almeida-pinturas-backend:latest
