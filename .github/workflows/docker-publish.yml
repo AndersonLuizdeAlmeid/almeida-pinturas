@@ -22,10 +22,10 @@ jobs:
 
       - name: Tag a imagem com a versão mais recente
         run: |
-          docker tag andersonluizdealmeida1997/almeida-pinturas-backend:latest andersonluizdealmeida1997/almeida-pinturas-backend:${{ github.sha }}
+          docker tag andersonluizdealmeida1997/almeida-pinturas:latest andersonluizdealmeida1997/almeida-pinturas:${{ github.sha }}
 
       - name: Enviar imagem pro Docker Hub (latest)
-        run: docker push andersonluizdealmeida1997/almeida-pinturas-backend:latest
+        run: docker push andersonluizdealmeida1997/almeida-pinturas:latest
 
       - name: Enviar versão específica para o Docker Hub
-        run: docker push andersonluizdealmeida1997/almeida-pinturas-backend:${{ github.sha }}
+        run: docker push andersonluizdealmeida1997/almeida-pinturas:${{ github.sha }}
