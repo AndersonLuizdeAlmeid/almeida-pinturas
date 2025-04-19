@@ -20,5 +20,11 @@ jobs:
       - name: Gerar imagem Docker do backend
         run: docker compose -f src/docker-compose.yml build
 
+      - name: Tag a imagem com a versão mais recente
+        run: docker tag andersonluizdealmeida1997/almeida-pinturas-backend:latest andersonluizdealmeida1997/almeida-pinturas-backend:${{ github.sha }}
+
       - name: Enviar imagem pro Docker Hub
         run: docker push andersonluizdealmeida1997/almeida-pinturas-backend:latest
+
+      - name: Enviar versão específica para o Docker Hub
+        run: docker push andersonluizdealmeida1997/almeida-pinturas-backend:${{ github.sha }}
