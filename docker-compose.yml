@@ -1,0 +1,87 @@
+version: "3.9"
+
+services:
+  users-api:
+    build:
+      context: ./src
+      dockerfile: Users/Users.WebApi/Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=sql-server;Database=UsersDb;User=sa;Password=Your_password123;
+      - RabbitMq__Host=rabbitmq
+    depends_on:
+      - sql-server
+      - rabbitmq
+    networks:
+      - backend-network
+
+  documents-api:
+    build:
+      context: ./src
+      dockerfile: Documents/Documents.WebApi/Dockerfile
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=mongodb://mongo:27017
+      - RabbitMq__Host=rabbitmq
+    depends_on:
+      - mongo
+      - rabbitmq
+    networks:
+      - backend-network
+
+  paintcalc-api:
+    build:
+      context: ./src
+      dockerfile: PaintCalculation/PaintCalculation.WebApi/Dockerfile
+    ports:
+      - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=sql-server;Database=PaintDb;User=sa;Password=Your_password123;
+    depends_on:
+      - sql-server
+    networks:
+      - backend-network
+
+  api-gateway:
+    build:
+      context: ./src
+      dockerfile: APIGateway/APIGateway.WebApi/Dockerfile
+    ports:
+      - "5000:80"
+    networks:
+      - backend-network
+
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql-server
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - backend-network
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - backend-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
