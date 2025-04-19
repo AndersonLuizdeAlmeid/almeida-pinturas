@@ -21,9 +21,10 @@ jobs:
         run: docker compose -f docker-compose.yml build
 
       - name: Tag a imagem com a versão mais recente
-        run: docker tag andersonluizdealmeida1997/almeida-pinturas-backend:latest andersonluizdealmeida1997/almeida-pinturas-backend:${{ github.sha }}
+        run: |
+          docker tag andersonluizdealmeida1997/almeida-pinturas-backend:latest andersonluizdealmeida1997/almeida-pinturas-backend:${{ github.sha }}
 
-      - name: Enviar imagem pro Docker Hub
+      - name: Enviar imagem pro Docker Hub (latest)
         run: docker push andersonluizdealmeida1997/almeida-pinturas-backend:latest
 
       - name: Enviar versão específica para o Docker Hub
