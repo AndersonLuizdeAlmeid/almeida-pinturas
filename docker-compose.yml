@@ -54,7 +54,6 @@ services:
     build:
       context: ./src
       dockerfile: APIGateway/APIGateway.WebApi/Dockerfile
-      image: andersonluizdealmeida1997/almeida-pinturas:latest
     ports:
       - "5000:80"
     networks:
