@@ -11,7 +11,7 @@ builder.Services.AddReverseProxy()
 var secret = builder.Configuration.GetValue<string>("Jwt:Secret");
 if (string.IsNullOrEmpty(secret))
 {
-    throw new Exception("A chave secreta JWT não está configurada.");
+    throw new Exception("A chave secreta JWT nï¿½o estï¿½ configurada.");
 }
 Key.SetSecret(secret);
 
@@ -22,7 +22,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "http://localhost:3000",
+            ValidIssuer = "http://45.10.154.254:3000",
 
             ValidateAudience = true,
             ValidAudience = "local-api",

@@ -52,7 +52,7 @@ builder.Services.AddAuthentication("Bearer")
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "http://localhost:3000", // mesmo que no Gateway
+            ValidIssuer = "http://45.10.154.254:3000", // mesmo que no Gateway
 
             ValidateAudience = true,
             ValidAudience = "local-api", // mesmo que no Gateway
