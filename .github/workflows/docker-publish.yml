@@ -29,3 +29,4 @@ jobs:
 
       - name: Enviar versão específica para o Docker Hub
         run: docker push andersonluizdealmeida1997/almeida-pinturas:${{ github.sha }}
+ 
