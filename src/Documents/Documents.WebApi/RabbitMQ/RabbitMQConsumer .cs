@@ -16,11 +16,12 @@ public class RabbitMQConsumer : BackgroundService
     {
         try
         {
+            Console.WriteLine("[RabbitMQConsumer] Antes de tudo!"); // <= aqui
             _folderCollection = database.GetCollection<Folder>("Folders");
 
             var factory = new ConnectionFactory()
             {
-                HostName = "45.10.154.254",
+                HostName = "root-rabbitmq-1",
                 UserName = "guest",
                 Password = "guest",
                 Port = 5672
