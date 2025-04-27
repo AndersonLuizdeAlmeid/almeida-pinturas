@@ -4,6 +4,7 @@ using RabbitMQ.Client;
 using Documents.Infrastructure.Domain;
 using System.Text;
 using System.Text.Json;
+using System;
 
 public class RabbitMQConsumer : BackgroundService
 {
@@ -24,6 +25,8 @@ public class RabbitMQConsumer : BackgroundService
         };
 
         _connection = factory.CreateConnection();
+        Console.WriteLine("[RabbitMQConsumer] Conexão com RabbitMQ criada!"); // <= aqui
+
         _channel = _connection.CreateModel();
         _channel.QueueDeclare(queue: "UserCreatedQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
     }
