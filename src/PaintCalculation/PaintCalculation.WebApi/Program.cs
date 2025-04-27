@@ -8,16 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        policy =>
-        {
-            policy
-                .WithOrigins("http://45.10.154.254:3000")
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials();
-        });
+    options.AddPolicy("AllowAll", corsPolicy =>
+    {
+        corsPolicy
+            .WithOrigins("http://45.10.154.254:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
 });
+
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -52,7 +52,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();

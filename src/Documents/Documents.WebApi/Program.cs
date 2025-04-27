@@ -38,15 +38,16 @@ builder.Services.AddHostedService<RabbitMQConsumer>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowAll", corsPolicy =>
     {
-        policy
+        corsPolicy
             .WithOrigins("http://45.10.154.254:3000")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
     });
 });
+
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>

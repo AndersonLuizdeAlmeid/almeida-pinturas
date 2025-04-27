@@ -11,16 +11,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddInjection(builder.Configuration);
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        policy =>
-        {
-            policy
-                .WithOrigins("http://45.10.154.254:3000")
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials();
-
-        });
+    options.AddPolicy("AllowAll", corsPolicy =>
+    {
+        corsPolicy
+            .WithOrigins("http://45.10.154.254:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
 });
 
 builder.Services.AddAuthentication("Bearer")
@@ -49,7 +47,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
