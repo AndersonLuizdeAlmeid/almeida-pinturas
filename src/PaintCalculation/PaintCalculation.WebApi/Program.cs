@@ -51,8 +51,8 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-app.UseHttpsRedirection();
 app.UseCors("AllowAll");
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
