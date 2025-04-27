@@ -7,7 +7,7 @@ public class TokenService
 {
     public static string GenerateCustomToken(long id, bool isActive)
     {
-        var issuer = "http://localhost:3000";
+        var issuer = "http://45.10.154.254:3000";
         var audience = "local-api";
 
         var claims = new List<Claim>
@@ -22,7 +22,7 @@ public class TokenService
         var token = new JwtSecurityToken(
             issuer: issuer,
             audience: audience,
-            expires: DateTime.UtcNow.AddHours(16),
+            expires: DateTime.UtcNow.AddHours(27),
             signingCredentials: creds,
             claims: claims
         );
@@ -37,11 +37,15 @@ public class TokenService
         {
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(Key.Secret!)),
-            ValidateIssuer = false,
-            ValidateAudience = false,
+            ValidateIssuer = true,
+            ValidIssuer = "http://45.10.154.254:3000",
+
+            ValidateAudience = true,
+            ValidAudience = "local-api",
+
             RequireExpirationTime = true,
-            ValidateLifetime = false, // Ou true, se quiser rejeitar tokens expirados
-            ClockSkew = TimeSpan.Zero
+            ValidateLifetime = false,
+            ClockSkew = TimeSpan.FromMinutes(5)
         };
 
         var principal = handler.ValidateToken(token, validationParameters, out var validatedToken);
