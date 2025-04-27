@@ -5,6 +5,8 @@ using Documents.Infrastructure.Domain;
 using System.Text;
 using System.Text.Json;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 public class RabbitMQConsumer : BackgroundService
 {
@@ -28,10 +30,11 @@ public class RabbitMQConsumer : BackgroundService
             _connection = factory.CreateConnection();
             Console.WriteLine("[RabbitMQConsumer] Conexão com RabbitMQ criada!"); // <= aqui
         }
-        catch(Exception ex) 
+        catch (Exception ex)
         {
-            Console.WriteLine("[RabbitMQConsumer] Conexão não criada! ", ex); // <= aqui
+            Console.WriteLine("[RabbitMQConsumer] Conexão não criada! Error: " + ex.Message); // AQUI
         }
+
 
         _channel = _connection.CreateModel();
         _channel.QueueDeclare(queue: "UserCreatedQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
@@ -39,37 +42,41 @@ public class RabbitMQConsumer : BackgroundService
 
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var consumer = new EventingBasicConsumer(_channel);
-        consumer.Received += (model, ea) =>
+        while (!cancellationToken.IsCancellationRequested)
         {
-            try
+
+            var consumer = new EventingBasicConsumer(_channel);
+            consumer.Received += (model, ea) =>
             {
-                if (stoppingToken.IsCancellationRequested)
-                    return;
-
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
-                var user = JsonSerializer.Deserialize<Folder>(message);
-
-                Console.WriteLine($"[Consumer] Received message: {message}");
-
-                if (user != null)
+                try
                 {
-                    CreateUserFolder(user);
+                    if (stoppingToken.IsCancellationRequested)
+                        return;
+
+                    var body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+                    var user = JsonSerializer.Deserialize<Folder>(message);
+
+                    Console.WriteLine($"[Consumer] Received message: {message}");
+
+                    if (user != null)
+                    {
+                        CreateUserFolder(user);
+                    }
+
+                    _channel.BasicAck(ea.DeliveryTag, false);
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[Consumer] Error processing message: {ex.Message}");
+                    _channel.BasicNack(ea.DeliveryTag, false, true); // Nack se erro ocorrer
+                }
+            };
 
-                _channel.BasicAck(ea.DeliveryTag, false);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[Consumer] Error processing message: {ex.Message}");
-                _channel.BasicNack(ea.DeliveryTag, false, true); // Nack se erro ocorrer
-            }
-        };
+            _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
 
-        _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
-
-        return Task.CompletedTask; // Deixa rodando até que o host seja encerrado
+            await Task.Delay(1000); // Deixa rodando até que o host seja encerrado
+        }
     }
 
 
