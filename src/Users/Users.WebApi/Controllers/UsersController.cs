@@ -34,13 +34,20 @@ public class UsersController(IUserQuery _userQueries, IMediator _mediator, Rabbi
     [Authorization]
     public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cancellationToken)
     {
-        var result = await _mediator.Send(command, cancellationToken);
-        if (result.IsFailure)
-            return BadRequest(new { message = result.Error });
+        try
+        {
+            var result = await _mediator.Send(command, cancellationToken);
+            if (result.IsFailure)
+                return BadRequest(new { message = result.Error });
 
-        _rabbitMQPublisher.PublishUserCreatedEvent(command.User.Id);
+            _rabbitMQPublisher.PublishUserCreatedEvent(command.User.Id);
 
-        return Ok(new { message = "Usuário criado com sucesso!" });
+            return Ok(new { message = "Usuário criado com sucesso!" });
+        }
+        catch(Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPut]
