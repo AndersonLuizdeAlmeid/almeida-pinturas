@@ -40,13 +40,13 @@ public class RabbitMQConsumer : BackgroundService
 
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                var userEvent = JsonSerializer.Deserialize<UserCreatedEvent>(message);
+                var user = JsonSerializer.Deserialize<Folder>(message);
 
                 Console.WriteLine($"[Consumer] Received message: {message}");
 
-                if (userEvent != null)
+                if (user != null)
                 {
-                    CreateUserFolder(userEvent);
+                    CreateUserFolder(user);
                 }
 
                 _channel.BasicAck(ea.DeliveryTag, false);
@@ -56,6 +56,7 @@ public class RabbitMQConsumer : BackgroundService
                 Console.WriteLine($"[Consumer] Error processing message: {ex.Message}");
                 _channel.BasicNack(ea.DeliveryTag, false, true); // Nack se erro ocorrer
             }
+        }
         };
 
         _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
