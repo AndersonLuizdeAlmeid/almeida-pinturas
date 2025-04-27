@@ -24,7 +24,7 @@ public class AuthenticationsController(IMediator _mediator) : ControllerBase
         catch (Exception ex)
         {
             Console.WriteLine(ex);
-            return Ok();
+            return BadRequest(ex.Message);
         }
     }
 
