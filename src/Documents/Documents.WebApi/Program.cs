@@ -38,7 +38,7 @@ builder.Services.AddHostedService<RabbitMQConsumer>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy
             .WithOrigins("http://45.10.154.254:3000")
