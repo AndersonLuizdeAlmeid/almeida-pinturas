@@ -56,7 +56,6 @@ public class RabbitMQConsumer : BackgroundService
                 Console.WriteLine($"[Consumer] Error processing message: {ex.Message}");
                 _channel.BasicNack(ea.DeliveryTag, false, true); // Nack se erro ocorrer
             }
-        }
         };
 
         _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
