@@ -33,21 +33,29 @@ public class RabbitMQConsumer : BackgroundService
         var consumer = new EventingBasicConsumer(_channel);
         consumer.Received += (model, ea) =>
         {
-            if (stoppingToken.IsCancellationRequested)
-                return;
-
-            var body = ea.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
-            var user = JsonSerializer.Deserialize<Folder>(message);
-
-            Console.WriteLine($"[Consumer] Received message: {message}");
-
-            if (user != null)
+            try
             {
-                CreateUserFolder(user);
-            }
+                if (stoppingToken.IsCancellationRequested)
+                    return;
 
-            _channel.BasicAck(ea.DeliveryTag, false);
+                var body = ea.Body.ToArray();
+                var message = Encoding.UTF8.GetString(body);
+                var userEvent = JsonSerializer.Deserialize<UserCreatedEvent>(message);
+
+                Console.WriteLine($"[Consumer] Received message: {message}");
+
+                if (userEvent != null)
+                {
+                    CreateUserFolder(userEvent);
+                }
+
+                _channel.BasicAck(ea.DeliveryTag, false);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Consumer] Error processing message: {ex.Message}");
+                _channel.BasicNack(ea.DeliveryTag, false, true); // Nack se erro ocorrer
+            }
         };
 
         _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
