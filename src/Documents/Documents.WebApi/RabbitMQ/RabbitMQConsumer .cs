@@ -27,7 +27,7 @@ public class RabbitMQConsumer : BackgroundService
 
             var factory = new ConnectionFactory()
             {
-                HostName = "root-rabbitmq-1",
+                HostName = "45.10.154.254",
                 UserName = "guest",
                 Password = "guest",
                 Port = 5672
@@ -56,7 +56,10 @@ public class RabbitMQConsumer : BackgroundService
             consumer.Received += (model, ea) =>
             {
                 if (stoppingToken.IsCancellationRequested)
+                {
+                    _logger.LogInformation("[RabbitMQConsumer] Cancelamento solicitado. Parando consumo de mensagens.");
                     return;
+                }
 
                 try
                 {
@@ -66,12 +69,19 @@ public class RabbitMQConsumer : BackgroundService
 
                     _logger.LogInformation("[RabbitMQConsumer] Mensagem recebida: {Message}", message);
 
+                    if (string.IsNullOrEmpty(message))
+                    {
+                        _logger.LogWarning("[RabbitMQConsumer] Mensagem vazia recebida.");
+                        return;
+                    }
+
                     if (user != null)
                     {
                         CreateUserFolder(user);
                     }
 
                     _channel.BasicAck(ea.DeliveryTag, multiple: false);
+                    _logger.LogInformation("[RabbitMQConsumer] Mensagem processada e confirmada.");
                 }
                 catch (Exception ex)
                 {
@@ -80,6 +90,7 @@ public class RabbitMQConsumer : BackgroundService
                 }
             };
 
+            _logger.LogInformation("[RabbitMQConsumer] Iniciando a escuta da fila...");
             _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
         }
         catch (Exception ex)
