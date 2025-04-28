@@ -34,7 +34,9 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 builder.Services.Configure<MongoDbSettings>(
         builder.Configuration.GetSection("MongoDbSettings"));
 
+Console.WriteLine("Antes de instanciar o RabbitMQ");
 builder.Services.AddHostedService<RabbitMQConsumer>();
+Console.WriteLine("Depois de instanciar o RabbitMQ");
 
 builder.Services.AddCors(options =>
 {
