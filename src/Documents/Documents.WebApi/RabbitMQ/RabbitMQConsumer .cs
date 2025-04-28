@@ -19,10 +19,10 @@ public class RabbitMQConsumer : BackgroundService
     public RabbitMQConsumer(IMongoDatabase database, ILogger<RabbitMQConsumer> logger)
     {
         _logger = logger;
-        _folderCollection = database.GetCollection<Folder>("Folders");
-
         try
         {
+            _folderCollection = database.GetCollection<Folder>("Folders");
+
             _logger.LogInformation("[RabbitMQConsumer] Antes de tudo!");
 
             var factory = new ConnectionFactory()
@@ -48,7 +48,7 @@ public class RabbitMQConsumer : BackgroundService
 
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        Console.WriteLine("[RabbitMQConsumer] Iniciando ExecuteAsync...");
+        _logger.LogInformation("[RabbitMQConsumer] Iniciando consumo de mensagens...");
 
         try
         {
@@ -64,29 +64,27 @@ public class RabbitMQConsumer : BackgroundService
                     var message = Encoding.UTF8.GetString(body);
                     var user = JsonSerializer.Deserialize<Folder>(message);
 
-                    Console.WriteLine($"[Consumer] Received message: {message}");
+                    _logger.LogInformation("[RabbitMQConsumer] Mensagem recebida: {Message}", message);
 
                     if (user != null)
                     {
                         CreateUserFolder(user);
                     }
 
-                    _channel.BasicAck(ea.DeliveryTag, false);
+                    _channel.BasicAck(ea.DeliveryTag, multiple: false);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Consumer] Error processing message: {ex.Message}");
-                    _channel.BasicNack(ea.DeliveryTag, false, true);
+                    _logger.LogError(ex, "[RabbitMQConsumer] Erro ao processar mensagem: {Message}", ex.Message);
+                    _channel.BasicNack(ea.DeliveryTag, multiple: false, requeue: true);
                 }
             };
 
             _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
-
-            Console.WriteLine("[RabbitMQConsumer] Consumindo mensagens...");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"[RabbitMQConsumer] Erro no ExecuteAsync: {ex.Message}");
+            _logger.LogError(ex, "[RabbitMQConsumer] Erro ao configurar consumidor: {Message}", ex.Message);
         }
 
         return Task.CompletedTask;
@@ -94,14 +92,31 @@ public class RabbitMQConsumer : BackgroundService
 
     private void CreateUserFolder(Folder folder)
     {
-        var newFolder = new Folder
+        try
         {
-            UserId = folder.UserId,
-            FolderName = $"user_{folder.UserId}",
-        };
+            var newFolder = new Folder
+            {
+                UserId = folder.UserId,
+                FolderName = $"user_{folder.UserId}"
+            };
 
-        _folderCollection.InsertOne(newFolder);
-        Console.WriteLine($"[Consumer] Virtual folder created for user: {folder.UserId}");
+            _folderCollection.InsertOne(newFolder);
+            _logger.LogInformation("[RabbitMQConsumer] Pasta virtual criada para o usuário: {UserId}", folder.UserId);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "[RabbitMQConsumer] Erro ao criar pasta: {Message}", ex.Message);
+        }
+    }
+
+    public override Task StopAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("[RabbitMQConsumer] Parando consumidor e fechando conexões...");
+
+        _channel?.Close();
+        _connection?.Close();
+
+        return base.StopAsync(cancellationToken);
     }
 
 }
