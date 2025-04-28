@@ -13,6 +13,8 @@ public class RabbitMQConsumer : BackgroundService
     private readonly IMongoCollection<Folder> _folderCollection;
     private readonly IModel _channel;
     private readonly IConnection _connection;
+    private readonly ILogger<RabbitMQConsumer> _logger;
+
 
     public RabbitMQConsumer(IMongoDatabase database, ILogger<RabbitMQConsumer> logger)
     {
