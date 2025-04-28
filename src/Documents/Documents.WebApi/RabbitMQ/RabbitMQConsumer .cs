@@ -14,13 +14,14 @@ public class RabbitMQConsumer : BackgroundService
     private readonly IModel _channel;
     private readonly IConnection _connection;
 
-    public RabbitMQConsumer(IMongoDatabase database)
+    public RabbitMQConsumer(IMongoDatabase database, ILogger<RabbitMQConsumer> logger)
     {
+        _logger = logger;
+        _folderCollection = database.GetCollection<Folder>("Folders");
+
         try
         {
-            Console.WriteLine("[RabbitMQConsumer] Antes de tudo!");
-
-            _folderCollection = database.GetCollection<Folder>("Folders");
+            _logger.LogInformation("[RabbitMQConsumer] Antes de tudo!");
 
             var factory = new ConnectionFactory()
             {
@@ -34,11 +35,11 @@ public class RabbitMQConsumer : BackgroundService
             _channel = _connection.CreateModel();
             _channel.QueueDeclare(queue: "UserCreatedQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
-            Console.WriteLine("[RabbitMQConsumer] Conexão com RabbitMQ criada!");
+            _logger.LogInformation("[RabbitMQConsumer] Conexão com RabbitMQ criada!");
         }
         catch (Exception ex)
         {
-            Console.WriteLine("[RabbitMQConsumer] Falha ao conectar no RabbitMQ: " + ex.Message);
+            _logger.LogError(ex, "[RabbitMQConsumer] Falha ao conectar no RabbitMQ: {Message}", ex.Message);
             throw;
         }
     }
