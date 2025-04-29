@@ -92,6 +92,15 @@ public class RabbitMQConsumer : BackgroundService
 
             _logger.LogInformation("[RabbitMQConsumer] Iniciando a escuta da fila...");
             _channel.BasicConsume(queue: "UserCreatedQueue", autoAck: false, consumer: consumer);
+
+            try
+            {
+                await Task.Delay(Timeout.Infinite, stoppingToken);
+            }
+            catch(TaskCanceledException)
+            {
+                await StopAsync(stoppingToken);
+            }
         }
         catch (Exception ex)
         {
