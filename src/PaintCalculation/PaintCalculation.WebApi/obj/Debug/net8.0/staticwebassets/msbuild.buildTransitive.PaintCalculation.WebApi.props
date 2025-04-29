@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\PaintCalculation.WebApi.props" />
+</Project>
