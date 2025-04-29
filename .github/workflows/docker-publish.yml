@@ -11,22 +11,80 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar projeto do GitHub
+      - name: Clonar projeto
         uses: actions/checkout@v3
 
-      - name: Fazer login no Docker Hub
+      - name: Login no Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Gerar imagem Docker do backend
-        run: docker compose -f docker-compose.yml build
-
-      - name: Tag a imagem com a versão mais recente
+      # --- Users API ---
+      - name: Build users-api
         run: |
-          docker tag andersonluizdealmeida1997/almeida-pinturas:latest andersonluizdealmeida1997/almeida-pinturas:${{ github.sha }}
+          docker build \
+            -f src/Users/Users.WebApi/Dockerfile \
+            -t andersonluizdealmeida1997/users-api:latest \
+            src
 
-      - name: Enviar imagem pro Docker Hub (latest)
-        run: docker push andersonluizdealmeida1997/almeida-pinturas:latest
+      - name: Tag users-api com SHA
+        run: |
+          docker tag andersonluizdealmeida1997/users-api:latest \
+            andersonluizdealmeida1997/users-api:${{ github.sha }}
 
-      - name: Enviar versão específica para o Docker Hub
-        run: docker push andersonluizdealmeida1997/almeida-pinturas:${{ github.sha }}
- 
+      - name: Push users-api
+        run: |
+          docker push andersonluizdealmeida1997/users-api:latest
+          docker push andersonluizdealmeida1997/users-api:${{ github.sha }}
+
+      # --- Documents API ---
+      - name: Build documents-api
+        run: |
+          docker build \
+            -f src/Documents/Documents.WebApi/Dockerfile \
+            -t andersonluizdealmeida1997/documents-api:latest \
+            src
+
+      - name: Tag documents-api com SHA
+        run: |
+          docker tag andersonluizdealmeida1997/documents-api:latest \
+            andersonluizdealmeida1997/documents-api:${{ github.sha }}
+
+      - name: Push documents-api
+        run: |
+          docker push andersonluizdealmeida1997/documents-api:latest
+          docker push andersonluizdealmeida1997/documents-api:${{ github.sha }}
+
+      # --- PaintCalc API ---
+      - name: Build paintcalc-api
+        run: |
+          docker build \
+            -f src/PaintCalculation/PaintCalculation.WebApi/Dockerfile \
+            -t andersonluizdealmeida1997/paintcalc-api:latest \
+            src
+
+      - name: Tag paintcalc-api com SHA
+        run: |
+          docker tag andersonluizdealmeida1997/paintcalc-api:latest \
+            andersonluizdealmeida1997/paintcalc-api:${{ github.sha }}
+
+      - name: Push paintcalc-api
+        run: |
+          docker push andersonluizdealmeida1997/paintcalc-api:latest
+          docker push andersonluizdealmeida1997/paintcalc-api:${{ github.sha }}
+
+      # --- API Gateway ---
+      - name: Build api-gateway
+        run: |
+          docker build \
+            -f src/APIGateway/APIGateway.WebApi/Dockerfile \
+            -t andersonluizdealmeida1997/api-gateway:latest \
+            src
+
+      - name: Tag api-gateway com SHA
+        run: |
+          docker tag andersonluizdealmeida1997/api-gateway:latest \
+            andersonluizdealmeida1997/api-gateway:${{ github.sha }}
+
+      - name: Push api-gateway
+        run: |
+          docker push andersonluizdealmeida1997/api-gateway:latest
+          docker push andersonluizdealmeida1997/api-gateway:${{ github.sha }}
