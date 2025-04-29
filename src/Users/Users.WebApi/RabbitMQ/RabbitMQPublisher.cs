@@ -12,7 +12,7 @@ public class RabbitMQPublisher
     {
         var factory = new ConnectionFactory()
         {
-            HostName = "45.10.154.254",
+            HostName = _hostname,
             UserName = "guest",
             Password = "guest",
             Port = 5672
