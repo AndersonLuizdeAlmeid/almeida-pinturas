@@ -2,6 +2,7 @@ using Documents.Infrastructure.Domain;
 using MongoDB.Driver;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RabbitMQ.Client.Exceptions;
 using System.Text;
 using System.Text.Json;
 
@@ -31,16 +32,41 @@ public class RabbitMQConsumer : BackgroundService
                 Port = int.Parse(config["RabbitMq:Port"])
             };
 
-            _connection = factory.CreateConnection();
-            _channel = _connection.CreateModel();
+            const int maxAttempts = 10;
+            const int delayMs = 3000;
+            int attempt = 0;
+            while (true)
+            {
+                try
+                {
+                    attempt++;
+                    _connection = factory.CreateConnection();
+                    _channel = _connection.CreateModel();
+                    _logger.LogInformation("[RabbitMQConsumer] Conectado no RabbitMQ na tentativa {Attempt}", attempt);
+                    break;
+                }
+                catch (BrokerUnreachableException ex) when (attempt < maxAttempts)
+                {
+                    _logger.LogWarning(ex, "[RabbitMQConsumer] Tentativa {Attempt}/{Max} falhou, aguardando {Delay}ms",
+                        attempt, maxAttempts, delayMs);
+                    Thread.Sleep(delayMs);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "[RabbitMQConsumer] Não conseguiu conectar após {Attempt} tentativas", attempt);
+                    throw;
+                }
+            }
+            // ————————————
+
             _channel.QueueDeclare(
                 queue: "UserCreatedQueue",
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
                 arguments: null);
+            _logger.LogInformation("[RabbitMQConsumer] Fila declarada e pronta para consumir.");
 
-            _logger.LogInformation("[RabbitMQConsumer] Conexão com RabbitMQ criada!");
         }
         catch (Exception ex)
         {
