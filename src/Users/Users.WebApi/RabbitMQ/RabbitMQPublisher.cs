@@ -8,15 +8,16 @@ public class RabbitMQPublisher
     private readonly string _hostname = "rabbitmq"; // Alterar se necessário
     private readonly string _queueName = "UserCreatedQueue";
 
-    public void PublishUserCreatedEvent(long userId)
+    public void PublishUserCreatedEvent(long userId, IConfiguration config)
     {
         var factory = new ConnectionFactory()
         {
-            HostName = _hostname,
-            UserName = "guest",
-            Password = "guest",
-            Port = 5672
+            HostName = config["RabbitMq:Host"],
+            UserName = config["RabbitMq:Username"],
+            Password = config["RabbitMq:Password"],
+            Port = int.Parse(config["RabbitMq:Port"])
         };
+
 
         using (var connection = factory.CreateConnection())
         using (var channel = connection.CreateModel())

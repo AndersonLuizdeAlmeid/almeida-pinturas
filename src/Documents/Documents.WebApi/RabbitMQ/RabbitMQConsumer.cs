@@ -12,7 +12,9 @@ public class RabbitMQConsumer : BackgroundService
     private readonly IConnection _connection;
     private readonly ILogger<RabbitMQConsumer> _logger;
 
-    public RabbitMQConsumer(IMongoDatabase database, ILogger<RabbitMQConsumer> logger)
+    public RabbitMQConsumer(IMongoDatabase database, 
+                            ILogger<RabbitMQConsumer> logger, 
+                            IConfiguration config)
     {
         _logger = logger;
         try
@@ -23,10 +25,10 @@ public class RabbitMQConsumer : BackgroundService
 
             var factory = new ConnectionFactory()
             {
-                HostName = "rabbitmq",
-                UserName = "guest",
-                Password = "guest",
-                Port = 5672
+                HostName = config["RabbitMq:Host"],
+                UserName = config["RabbitMq:Username"],
+                Password = config["RabbitMq:Password"],
+                Port = int.Parse(config["RabbitMq:Port"])
             };
 
             _connection = factory.CreateConnection();
