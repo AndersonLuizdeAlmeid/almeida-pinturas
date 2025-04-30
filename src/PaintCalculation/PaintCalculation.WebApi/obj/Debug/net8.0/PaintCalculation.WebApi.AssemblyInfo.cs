@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaintCalculation.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21e4fe702384a8a84a48e07a24047c0f651f616c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+251e06a7ed7958af18d63264bbe4682801b4944f")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaintCalculation.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaintCalculation.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
