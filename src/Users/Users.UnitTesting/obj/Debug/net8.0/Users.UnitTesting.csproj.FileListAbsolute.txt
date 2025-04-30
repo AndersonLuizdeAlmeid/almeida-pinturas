@@ -1,0 +1,7 @@
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\bin\Debug\net8.0\CoverletSourceRootsMapping_Users.UnitTesting
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\obj\Debug\net8.0\Users.UnitTesting.csproj.AssemblyReference.cache
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\obj\Debug\net8.0\Users.UnitTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\obj\Debug\net8.0\Users.UnitTesting.AssemblyInfoInputs.cache
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\obj\Debug\net8.0\Users.UnitTesting.AssemblyInfo.cs
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\obj\Debug\net8.0\Users.UnitTesting.csproj.CoreCompileInputs.cache
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.UnitTesting\obj\Debug\net8.0\Users.UnitTesting.sourcelink.json

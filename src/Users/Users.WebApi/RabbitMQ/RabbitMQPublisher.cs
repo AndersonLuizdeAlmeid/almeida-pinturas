@@ -7,15 +7,26 @@ public class RabbitMQPublisher
 {
     private readonly string _hostname = "rabbitmq"; // Alterar se necessário
     private readonly string _queueName = "UserCreatedQueue";
+    private readonly string _username;
+    private readonly string _password;
+    private readonly int _port;
 
-    public void PublishUserCreatedEvent(long userId, IConfiguration config)
+    public RabbitMQPublisher(IConfiguration config)
+    {
+        _hostname = config["RabbitMq:Host"]!;
+        _username = config["RabbitMq:Username"]!;
+        _password = config["RabbitMq:Password"]!;
+        _port = int.Parse(config["RabbitMq:Port"]!);
+    }
+
+    public void PublishUserCreatedEvent(long userId)
     {
         var factory = new ConnectionFactory()
         {
-            HostName = config["RabbitMq:Host"],
-            UserName = config["RabbitMq:Username"],
-            Password = config["RabbitMq:Password"],
-            Port = int.Parse(config["RabbitMq:Port"])
+            HostName = _hostname,
+            UserName = _username,
+            Password = _password,
+            Port = _port
         };
 
 
