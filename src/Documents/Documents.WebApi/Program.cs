@@ -34,22 +34,22 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 builder.Services.Configure<MongoDbSettings>(
         builder.Configuration.GetSection("MongoDbSettings"));
 
-Console.WriteLine("Antes de instanciar o RabbitMQ");
 builder.Services.AddHostedService<RabbitMQConsumer>();
-Console.WriteLine("Depois de instanciar o RabbitMQ");
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", corsPolicy =>
     {
         corsPolicy
-            .WithOrigins("http://45.10.154.254:3000")
+            .WithOrigins(
+                "http://almeida-pinturas.site:3000",
+                "https://almeida-pinturas.site:3000"   // caso configurarmos HTTPS
+            )
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
     });
 });
-
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -57,7 +57,7 @@ builder.Services.AddAuthentication("Bearer")
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "http://45.10.154.254:3000", // mesmo que no Gateway
+            ValidIssuer = "https://almeida-pinturas.site",
 
             ValidateAudience = true,
             ValidAudience = "local-api", // mesmo que no Gateway

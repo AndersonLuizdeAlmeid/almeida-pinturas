@@ -11,13 +11,15 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAll", corsPolicy =>
     {
         corsPolicy
-            .WithOrigins("http://45.10.154.254:3000")
+            .WithOrigins(
+                "http://almeida-pinturas.site:3000",
+                "https://almeida-pinturas.site:3000"   // caso configurarmos HTTPS
+            )
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
     });
 });
-
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>

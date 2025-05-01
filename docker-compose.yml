@@ -89,6 +89,9 @@ services:
       - "15672:15672"
     hostname: rabbitmq
     container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=almeida
+      - RABBITMQ_DEFAULT_PASS=Almeida123!
     networks:
       - backend-network
 
