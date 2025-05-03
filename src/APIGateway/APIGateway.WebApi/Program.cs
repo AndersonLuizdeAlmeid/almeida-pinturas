@@ -33,6 +33,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.WebHost.UseSetting(WebHostDefaults.ServerUrlsKey, "http://*:8080");
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("BearerPolicy", policy =>

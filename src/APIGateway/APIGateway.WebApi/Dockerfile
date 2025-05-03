@@ -12,4 +12,4 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 EXPOSE 80
-ENTRYPOINT ["dotnet", "APIGateway.WebApi.dll"]
+ENTRYPOINT ["dotnet", "APIGateway.WebApi.dll", "--urls", "http://0.0.0.0:8080"]
