@@ -1,6 +1,7 @@
 using APIGateway.WebApi.Utils;
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
@@ -32,8 +33,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(secret))
         };
     });
-
-builder.WebHost.UseSetting(WebHostDefaults.ServerUrlsKey, "http://*:8080");
 
 builder.Services.AddAuthorization(options =>
 {
@@ -77,6 +76,11 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 app.UseCors("AllowAll");
 app.UseAuthentication(); 
