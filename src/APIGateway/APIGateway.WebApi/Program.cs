@@ -16,6 +16,8 @@ if (string.IsNullOrEmpty(secret))
 }
 Key.SetSecret(secret);
 
+var issuer = builder.Configuration["Jwt:Issuer"];
+var audience = builder.Configuration["Jwt:Audience"];
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -23,10 +25,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "https://almeida-pinturas.site",
+            ValidIssuer = issuer,
 
             ValidateAudience = true,
-            ValidAudience = "local-api",
+            ValidAudience = audience,
 
             ValidateLifetime = true, 
             ValidateIssuerSigningKey = true,

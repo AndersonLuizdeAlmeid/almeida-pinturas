@@ -25,16 +25,18 @@ builder.Services.AddCors(options =>
     });
 });
 
+var issuer = builder.Configuration["Jwt:Issuer"];
+var audience = builder.Configuration["Jwt:Audience"];
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "https://almeida-pinturas.site",
+            ValidIssuer = issuer,
 
             ValidateAudience = true,
-            ValidAudience = "local-api", // mesmo que no Gateway
+            ValidAudience = audience, // mesmo que no Gateway
 
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
