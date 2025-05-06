@@ -38,7 +38,7 @@ public class TokenService
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(Key.Secret!)),
             ValidateIssuer = true,
-            ValidIssuer = "http://45.10.154.254:3000",
+            ValidIssuer = "https://almeida-pinturas.site",
 
             ValidateAudience = true,
             ValidAudience = "local-api",
