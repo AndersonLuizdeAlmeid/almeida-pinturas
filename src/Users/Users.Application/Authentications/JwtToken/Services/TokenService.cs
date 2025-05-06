@@ -7,7 +7,7 @@ public class TokenService
 {
     public static string GenerateCustomToken(long id, bool isActive)
     {
-        var issuer = "http://45.10.154.254:3000";
+        var issuer = "https://almeida-pinturas.site";
         var audience = "local-api";
 
         var claims = new List<Claim>
