@@ -16,5 +16,5 @@ public class MongoDbContext
 
     public IMongoCollection<Document> Documents => _database.GetCollection<Document>("Documents");
     public IMongoCollection<Folder> Folders => _database.GetCollection<Folder>("Folders");
-
+    public IMongoCollection<Budget> Budgets => _database.GetCollection<Budget>("Budgets");
 }

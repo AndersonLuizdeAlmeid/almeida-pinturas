@@ -1,3 +1,4 @@
+using Documents.Application.Repositories.Budgets;
 using Documents.Application.Repositories.Documents;
 using Documents.Application.Repositories.Folders;
 using Documents.Application.Services;
@@ -17,6 +18,8 @@ builder.Services.AddSingleton<MongoDbContext>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<IFolderRepository, FolderRepository>();
 builder.Services.AddScoped<IDocumentService, DocumentService>();
+builder.Services.AddScoped<IBudgetRepository, BudgetRepository>();
+builder.Services.AddScoped<IBudgetService, BudgetService>();
 
 builder.Services.AddSingleton<IMongoClient, MongoClient>(sp =>
 {
@@ -43,7 +46,8 @@ builder.Services.AddCors(options =>
         corsPolicy
             .WithOrigins(
                 "http://almeida-pinturas.site:3000",
-                "https://almeida-pinturas.site:3000"   // caso configurarmos HTTPS
+                "https://almeida-pinturas.site:3000",
+                "http://localhost:3000"// caso configurarmos HTTPS
             )
             .AllowAnyHeader()
             .AllowAnyMethod()

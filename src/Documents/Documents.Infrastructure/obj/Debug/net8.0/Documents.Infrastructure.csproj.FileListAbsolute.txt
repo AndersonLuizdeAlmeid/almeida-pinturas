@@ -1,0 +1,13 @@
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\bin\Debug\net8.0\Documents.Infrastructure.deps.json
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\bin\Debug\net8.0\Documents.Infrastructure.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\bin\Debug\net8.0\Documents.Infrastructure.pdb
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.csproj.AssemblyReference.cache
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.AssemblyInfoInputs.cache
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.AssemblyInfo.cs
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.sourcelink.json
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\refint\Documents.Infrastructure.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\Documents.Infrastructure.pdb
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Infrastructure\obj\Debug\net8.0\ref\Documents.Infrastructure.dll

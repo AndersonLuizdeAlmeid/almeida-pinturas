@@ -1,0 +1,16 @@
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\bin\Debug\net8.0\Documents.Application.deps.json
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\bin\Debug\net8.0\Documents.Application.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\bin\Debug\net8.0\Documents.Application.pdb
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\bin\Debug\net8.0\Documents.Infrastructure.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\bin\Debug\net8.0\Documents.Infrastructure.pdb
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.csproj.AssemblyReference.cache
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.AssemblyInfoInputs.cache
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.AssemblyInfo.cs
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.csproj.CoreCompileInputs.cache
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.sourcelink.json
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Document.B49D2FDB.Up2Date
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\refint\Documents.Application.dll
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\Documents.Application.pdb
+C:\Projetos\almeida-pinturas-backend\src\Documents\Documents.Application\obj\Debug\net8.0\ref\Documents.Application.dll
