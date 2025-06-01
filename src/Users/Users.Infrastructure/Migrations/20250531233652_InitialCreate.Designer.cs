@@ -12,7 +12,7 @@ using Users.Infrastructure.Data;
 namespace Users.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250429224810_InitialCreate")]
+    [Migration("20250531233652_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,6 +24,25 @@ namespace Users.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Users.Infrastructure.Data.Location", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<short>("IsFinished")
+                        .HasColumnType("smallint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
+                });
 
             modelBuilder.Entity("Users.Infrastructure.Data.User", b =>
                 {
@@ -60,6 +79,46 @@ namespace Users.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Users.Infrastructure.Data.WorkHours", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<short>("Hours")
+                        .HasColumnType("smallint");
+
+                    b.Property<long>("LocationId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LocationId");
+
+                    b.ToTable("WorkHours");
+                });
+
+            modelBuilder.Entity("Users.Infrastructure.Data.WorkHours", b =>
+                {
+                    b.HasOne("Users.Infrastructure.Data.Location", "Location")
+                        .WithMany("WorkHours")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Location");
+                });
+
+            modelBuilder.Entity("Users.Infrastructure.Data.Location", b =>
+                {
+                    b.Navigation("WorkHours");
                 });
 #pragma warning restore 612, 618
         }

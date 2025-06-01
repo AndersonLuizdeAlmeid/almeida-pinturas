@@ -17,7 +17,8 @@ builder.Services.AddCors(options =>
         corsPolicy
             .WithOrigins(
                 "http://almeida-pinturas.site:3000",
-                "https://almeida-pinturas.site:3000"   // caso configurarmos HTTPS
+                "https://almeida-pinturas.site:3000",   // caso configurarmos HTTPS
+                "http://localhost:3000"
             )
             .AllowAnyHeader()
             .AllowAnyMethod()

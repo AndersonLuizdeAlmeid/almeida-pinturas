@@ -178,3 +178,9 @@ C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\obj\Debug\net8.0\ref
 C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\obj\Debug\net8.0\Users.WebApi.pdb
 C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\obj\Debug\net8.0\Users.WebApi.genruntimeconfig.cache
 C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\obj\Debug\net8.0\ref\Users.WebApi.dll
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Projetos\almeida-pinturas-backend\src\Users\Users.WebApi\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
