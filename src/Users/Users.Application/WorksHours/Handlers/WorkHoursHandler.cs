@@ -15,7 +15,7 @@ public class WorkHoursHandler : IWorkHoursHandler,
         _workHoursRepository = workHoursRepository;
     }
 
-    public async Task<Result> Handle(DeleteWorkHoursCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CreateWorkHoursCommand request, CancellationToken cancellationToken)
     {
         try
         {
@@ -28,7 +28,7 @@ public class WorkHoursHandler : IWorkHoursHandler,
         }
     }
 
-    public async Task<Result> Handle(CreateWorkHoursCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(DeleteWorkHoursCommand request, CancellationToken cancellationToken)
     {
         try
         {
